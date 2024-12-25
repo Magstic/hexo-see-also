@@ -1,0 +1,18 @@
+{
+    "name": "hexo-see-also",
+    "version": "1.0.0",
+    "description": "A plug-in to beautify Hexo blog See Also.",
+    "main": "index.js",
+    "files": [
+      "index.js",
+      "source"
+    ],
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "hexo"
+    ],
+    "author": "Magstic",
+    "license": "MIT"
+  }
