@@ -1,13 +1,26 @@
 'use strict';
 
-const fs = require('fs');
+const fs = require('hexo-fs');
 const path = require('path');
 
+// CSS资源位置
+const CSS_PATH = path.resolve(path.resolve(__dirname, "./source/css"), 'see-also.css');
+
+// 资源生成器
+hexo.extend.generator.register('see_also', () => [{
+    path: 'css/see-also.css',
+    data: function() {
+        return fs.createReadStream(CSS_PATH);
+    }
+}]);
+
+// 注入CSS引用
 hexo.extend.filter.register('after_post_render', function(data) {
-  if (data.content.includes('see-also')) {
-    data.content = `<link rel="stylesheet" href="/css/see-also.css">\n${data.content}`;
-  }
-  return data;
+    if (data.content.includes('reference-table')) {
+        let link_css = `<link rel="stylesheet" href="${hexo.config.root}css/see-also.css" type="text/css">`;
+        data.content = link_css + data.content;
+    }
+    return data;
 });
 
 const referenceTable = function(args, content) {
