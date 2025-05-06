@@ -1,6 +1,6 @@
 {
     "name": "hexo-see-also",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A plug-in to beautify Hexo blog See Also.",
     "main": "index.js",
     "files": [
